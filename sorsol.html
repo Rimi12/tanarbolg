@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diák Sorsoló Eszköz</title>
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box; /* Ez biztosítja, hogy a padding ne növelje meg a szélességet */
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            color: #ffffff;
+        }
+
+        #sorbaRakasBtn { background-color: var(--primary-color); }
+        #sorbaRakasBtn:hover { background-color: #0056b3; }
+
+        #csoportositasBtn { background-color: var(--success-color); }
+        #csoportositasBtn:hover { background-color: #1e7e34; }
+
+        #kivalasztasBtn { background-color: var(--secondary-color); }
+        #kivalasztasBtn:hover { background-color: #545b62; }
+
+        input[type="number"] {
+            width: 70px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #eredmeny {
+            margin-top: 20px;
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 50px;
+        }
+
+        /* Eredmények stílusai */
+        #eredmeny .kiemelt {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #eredmeny ol, #eredmeny ul {
+            padding-left: 20px;
+        }
+         
+        #eredmeny li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        #eredmeny .group {
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        #eredmeny .group h3 {
+            margin-top: 0;
+            color: var(--success-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diák Sorsoló 🎲</h1>
+
+        <label for="diakokTextarea">Diákok nevei (soronként egy):</label>
+        <textarea id="diakokTextarea" rows="10" placeholder="Pl:
+Kiss Pista
+Nagy Éva
+Kovács János"></textarea>
+
+        <div class="controls">
+            <button id="sorbaRakasBtn">🔄 Véletlen sorrend</button>
+            
+            <button id="kivalasztasBtn">🎯 Egy diák sorsolása</button>
+            
+            <div class="control-group">
+                <button id="csoportositasBtn">👨‍👩‍👧‍👦 Csoportosítás</button>
+                <input type="number" id="csoportSzamInput" value="2" min="1">
+                <label for="csoportSzamInput">csoportba</label>
+            </div>
+        </div>
+
+        <h2>Eredmény:</h2>
+        <div id="eredmeny">
+            <p>Itt jelennek meg a műveletek eredményei.</p>
+        </div>
+    </div>
+
+    <script>
+        // DOM elemek összegyűjtése
+        const diakokTextarea = document.getElementById('diakokTextarea');
+        const sorbaRakasBtn = document.getElementById('sorbaRakasBtn');
+        const csoportositasBtn = document.getElementById('csoportositasBtn');
+        const kivalasztasBtn = document.getElementById('kivalasztasBtn');
+        const csoportSzamInput = document.getElementById('csoportSzamInput');
+        const eredmenyDiv = document.getElementById('eredmeny');
+
+        /**
+         * Segédfüggvény: Beolvassa, megtisztítja és tömbbe rendezi a diákokat a textareából.
+         * Kiszűri az üres sorokat.
+         * @returns {string[]} A diákok neveit tartalmazó tömb.
+         */
+        function getDiakok() {
+            const rawText = diakokTextarea.value;
+            return rawText.split('\n')          // Soronként feldarabolja
+                          .map(nev => nev.trim())     // Eltávolítja a felesleges szóközöket
+                          .filter(nev => nev.length > 0); // Kiszűri az üres sorokat
+        }
+
+        /**
+         * Segédfüggvény: Egy tömb elemeit véletlenszerűen összekeveri.
+         * Fisher-Yates (aka Knuth) Shuffle algoritmus.
+         * @param {Array} array - A keverendő tömb.
+         * @returns {Array} Az összekevert tömb (az eredetit módosítja).
+         */
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Modern csere
+            }
+            return array;
+        }
+
+        /**
+         * 1. funkció: Diákok véletlen sorba rendezése.
+         */
+        function handleSorbaRakas() {
+            const diakok = getDiakok();
+            if (diakok.length === 0) {
+                eredmenyDiv.innerHTML = '<p>Kérlek, írj be legalább egy diákot!</p>';
+                return;
+            }
+
+            const shuffledDiakok = shuffleArray(diakok);
+
+            // Eredmény megjelenítése HTML-ként (rendezett lista)
+            let html = '<p>A diákok véletlenszerű sorrendben:</p><ol>';
+            shuffledDiakok.forEach(diak => {
+                html += `<li>${diak}</li>`;
+            });
+            html += '</ol>';
+            
+            eredmenyDiv.innerHTML = html;
+        }
+
+        /**
+         * 2. funkció: Diákok csoportokba osztása.
+         */
+        function handleCsoportositas() {
+            let diakok = getDiakok();
+            const csoportSzam = parseInt(csoportSzamInput.value, 10);
+
+            // Validáció
+            if (diakok.length === 0) {
+                eredmenyDiv.innerHTML = '<p>Kérlek, írj be legalább egy diákot!</p>';
+                return;
+            }
+            if (isNaN(csoportSzam) || csoportSzam <= 0) {
+                eredmenyDiv.innerHTML = '<p>Kérlek, érvényes csoportszámot adj meg (legalább 1)!</p>';
+                return;
+            }
+            if (csoportSzam > diakok.length) {
+                eredmenyDiv.innerHTML = `<p>Nem lehet több csoport (${csoportSzam}), mint ahány diák van (${diakok.length})!</p>`;
+                return;
+            }
+
+            // Először keverjük meg a diákokat
+            diakok = shuffleArray(diakok);
+
+            // Hozzunk létre üres tömböket a csoportoknak
+            const csoportok = [];
+            for (let i = 0; i < csoportSzam; i++) {
+                csoportok.push([]);
+            }
+
+            // Osszuk szét a diákokat a csoportok között (egyesével, körforgásos alapon)
+            diakok.forEach((diak, index) => {
+                const csoportIndex = index % csoportSzam;
+                csoportok[csoportIndex].push(diak);
+            });
+
+            // Eredmény megjelenítése HTML-ként
+            let html = '';
+            csoportok.forEach((csoport, index) => {
+                html += `<div class="group">`;
+                html += `<h3>${index + 1}. Csoport</h3>`;
+                html += '<ul>';
+                csoport.forEach(diak => {
+                    html += `<li>${diak}</li>`;
+                });
+                html += '</ul>';
+                html += `</div>`;
+            });
+
+            eredmenyDiv.innerHTML = html;
+        }
+
+        /**
+         * 3. funkció: Egy diák véletlenszerű kisorsolása.
+         */
+        function handleKivalasztas() {
+            const diakok = getDiakok();
+            if (diakok.length === 0) {
+                eredmenyDiv.innerHTML = '<p>Kérlek, írj be legalább egy diákot!</p>';
+                return;
+            }
+
+            // Véletlenszerű index választása
+            const randomIndex = Math.floor(Math.random() * diakok.length);
+            const kivalasztott = diakok[randomIndex];
+
+            // Eredmény megjelenítése
+            eredmenyDiv.innerHTML = `<p>A kisorsolt diák:</p><span class="kiemelt">${kivalasztott}</span>`;
+        }
+
+        // Eseménykezelők hozzárendelése a gombokhoz
+        sorbaRakasBtn.addEventListener('click', handleSorbaRakas);
+        csoportositasBtn.addEventListener('click', handleCsoportositas);
+        kivalasztasBtn.addEventListener('click', handleKivalasztas);
+
+    </script>
+</body>
+</html>
