@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="hu"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;AliExpress Akció Kalkulátor&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #d9534f; /* AliExpress piros */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 8px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th, td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>vertical-align: top;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f9f9f9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>td:nth-child(1) { width: 4%; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>td:nth-child(2) { width: 36%; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>td:nth-child(3) { width: 20%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>td:nth-child(4) { width: 20%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>td:nth-child(5) { width: 20%; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Kiemelt sorok */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tema-osszesito {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f5f5f5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tfoot tr {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Input mezők stílusa */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input[type="number"] {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* A "varázslat": színkódok a helyes/helytelen válaszhoz */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input.helyes {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #5cb85c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #5cb85c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input.helytelen {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #d9534f;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #d9534f;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Kisebb betű a kimeneti mezőknek, amiket a gép számol */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.output {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🛒 AliExpress Akció Kalkulátor&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;&lt;b&gt;Feladat:&lt;/b&gt; Keressétek meg az alábbi termékeket az AliExpressen! Írjátok be az &lt;b&gt;Eredeti Ár&lt;/b&gt;at (áthúzott ár) és az &lt;b&gt;Akciós Ár&lt;/b&gt;at. Ezután számoljátok ki a &lt;b&gt;Megtakarítás (%)&lt;/b&gt; mértékét, és írjátok be a mezőbe! Ha helyesen számoltatok, a mező zöldre vált!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;A százalékot így számold: &lt;b&gt;( (Eredeti Ár - Akciós Ár) / Eredeti Ár ) * 100&lt;/b&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Sorsz.&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Termék Megnevezés&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Eredeti Ár (Ft)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Akciós Ár (Ft)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Megtakarítás (%)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tbody id="termek-lista"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;1.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;RGB LED szalag (5 méter)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 5000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 3500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;2.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Gamer egér (vezetékes, RGB)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 6000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;3.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Fejhallgató tartó állvány&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 2500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Gamer Sarok" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-1"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-1"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-1"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;4.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Vízálló telefontartó kormányra&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 3000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;5.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;USB-s biciklis lámpa szett&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 3500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;6.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Digitális kerékpár-sebességmérő&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 5000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Bringa Tuning" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-2"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-2"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-2"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;7.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Mini tripod állvány telefonhoz&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 2000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 1500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;8.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Csiptetős mikrofon&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 3000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;9.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Csiptethető "Ring light" körfény&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 1500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 1000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Vlogger Pack" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-3"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-3"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-3"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;10.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Mini gravírozó toll szett&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 4500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 3000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;11.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Ékszerkészítő alapcsomag&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 5000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;12.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Tie-Dye" (batikoló) porfesték készlet&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 3500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2800"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"DIY Műhely" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-4"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-4"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-4"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;13.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;GPS nyomkövető biléta&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;14.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Interaktív, magától mozgó labda&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 3500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2800"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;15.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Lassan etető tál&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 2500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 1800"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Kisállat Kényeztető" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-5"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-5"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-5"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;16.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Multitool (10+ funkciós)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 6000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 4000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;17.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Vízálló táska (5L "dry bag")&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 3000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 2000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="kalkulal-sor" data-tema="6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;18.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;Paracord karkötő (iránytűvel)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="eredeti-ar" placeholder="pl. 1500"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="akcios-ar" placeholder="pl. 1000"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;input type="number" class="megtakaritas-szazalek" placeholder="?"&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr class="tema-osszesito" id="ossz-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;"Túlélő" Téma Összesen:&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="eredeti-ossz-6"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="akcios-ossz-6"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="output" id="szazalek-ossz-6"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tfoot&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td colspan="2"&gt;VÉGÖSSZESÍTÉS (Minden termék)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td id="teljes-eredeti"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td id="teljes-akcios"&gt;0 Ft&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td id="teljes-megtakaritas"&gt;-%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tfoot&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Ez a JavaScript kód felel az "okosságért"</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Figyeljük az összes sort, ahol számolni kell</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.kalkulal-sor').forEach(sor =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const eredetiInput = sor.querySelector('.eredeti-ar');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const akciosInput = sor.querySelector('.akcios-ar');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const szazalekInput = sor.querySelector('.megtakaritas-szazalek');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Amint bármelyik mezőbe ír a diák, ez a funkció lefut</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function ellenorzesEsSzamolas() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const eredetiAr = parseFloat(eredetiInput.value);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const akciosAr = parseFloat(akciosInput.value);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const diakSzazalek = parseFloat(szazalekInput.value);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Szín eltávolítása, ha üres valamelyik mező</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!eredetiAr || !akciosAr) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>szazalekInput.classList.remove('helyes', 'helytelen');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>frissitOsszesitot(); // Összesítő frissítése</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 1. Helyes százalék kiszámítása a háttérben</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// ( (Eredeti - Akciós) / Eredeti ) * 100</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const helyesSzazalek = ((eredetiAr - akciosAr) / eredetiAr) * 100;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 2. Ellenőrzés, ha a diák már beírt valamit a százalék mezőbe</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!isNaN(diakSzazalek)) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Kerekítünk 1 tizedesjegyre az összehasonlításnál, hogy a 33.3 és a 33.333 is jónak tűnjön</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const diakSzamKerekitve = Math.round(diakSzazalek * 10) / 10;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const helyesSzamKerekitve = Math.round(helyesSzazalek * 10) / 10;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (diakSzamKerekitve === helyesSzamKerekitve) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>szazalekInput.classList.add('helyes');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>szazalekInput.classList.remove('helytelen');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>szazalekInput.classList.add('helytelen');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>szazalekInput.classList.remove('helyes');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Ha nincs beírva százalék, ne legyen színes</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>szazalekInput.classList.remove('helyes', 'helytelen');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 3. Összesítő frissítése minden gombnyomásra</p>
+<p class="p1"><span class="Apple-converted-space">                </span>frissitOsszesitot();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Eseményfigyelők hozzáadása mindhárom mezőhöz</p>
+<p class="p1"><span class="Apple-converted-space">            </span>eredetiInput.addEventListener('input', ellenorzesEsSzamolas);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>akciosInput.addEventListener('input', ellenorzesEsSzamolas);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>szazalekInput.addEventListener('input', ellenorzesEsSzamolas);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Ez a funkció frissíti a szürke "Téma Összesen" sorokat és a láblécet</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function frissitOsszesitot() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let vegEredeti = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let vegAkcios = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Témák (1-től 6-ig) összesítése</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt;= 6; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let temaEredeti = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let temaAkcios = 0;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelectorAll(`[data-tema="${i}"]`).forEach(sor =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const eredetiAr = parseFloat(sor.querySelector('.eredeti-ar').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const akciosAr = parseFloat(sor.querySelector('.akcios-ar').value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>temaEredeti += eredetiAr;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>temaAkcios += akciosAr;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Beírjuk az értékeket a téma összesítő sorába</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`eredeti-ossz-${i}`).textContent = temaEredeti.toLocaleString('hu-HU') + ' Ft';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`akcios-ossz-${i}`).textContent = temaAkcios.toLocaleString('hu-HU') + ' Ft';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let temaSzazalek = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(temaEredeti &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>temaSzazalek = ((temaEredeti - temaAkcios) / temaEredeti) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`szazalek-ossz-${i}`).textContent = temaSzazalek.toFixed(1) + ' %';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Hozzáadjuk a végösszesítéshez</p>
+<p class="p1"><span class="Apple-converted-space">                </span>vegEredeti += temaEredeti;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>vegAkcios += temaAkcios;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Végösszesítés (lábléc) frissítése</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('teljes-eredeti').textContent = vegEredeti.toLocaleString('hu-HU') + ' Ft';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('teljes-akcios').textContent = vegAkcios.toLocaleString('hu-HU') + ' Ft';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let vegSzazalek = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(vegEredeti &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>vegSzazalek = ((vegEredeti - vegAkcios) / vegEredeti) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('teljes-megtakaritas').textContent = vegSzazalek.toFixed(1) + ' %';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
